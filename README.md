@@ -63,7 +63,7 @@ src/
 
 ### Installation
 ```bash
-git clone [https://github.com/thicianny-marques/component-library-test](https://github.com/ThiciannyMarques/component-library-ui/).git
+git clone https://github.com/ThiciannyMarques/component-library-ui.git
 cd component-library-ui
 npm install
 ```
