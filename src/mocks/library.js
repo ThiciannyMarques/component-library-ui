@@ -26,3 +26,5 @@ export function addBigData(categories, components) {
     });
   }
 }
+
+addBigData(30, 10000);
