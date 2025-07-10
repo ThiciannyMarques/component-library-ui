@@ -1,0 +1,33 @@
+.component-library {
+    display: flex;
+    flex: 1;
+}
+
+.component-library aside {
+    width: 240px;
+    border-right: 1px solid #ccc;
+    padding: 16px;
+}
+
+.component-library main {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.component-library input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+}
+
+.component-library h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.error-message {
+    padding: 16px;
+    color: red;
+}

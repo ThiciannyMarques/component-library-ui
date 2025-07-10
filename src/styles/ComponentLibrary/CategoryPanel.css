@@ -1,0 +1,9 @@
+.category-list-item {
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.category-list-item.selected {
+    font-weight: bold;
+    background: #eef;
+}

@@ -1,23 +1,16 @@
 import { useMemo, useEffect, useState } from "react";
 
 const filterComponentsByName = (components, searchTerm) => {
-  try {
-    const searchLower = searchTerm.toLowerCase();
-    return components.filter((component) =>
-      component?.Name?.toLowerCase().includes(searchLower)
-    );
-  } catch (error) {
-    console.error("Filter error:", error);
-    return [];
-  }
+  const searchLower = searchTerm.toLowerCase();
+  return components.filter((component) =>
+    component?.Name?.toLowerCase().includes(searchLower)
+  );
 };
 
-const calculateCategoryCounts = (categories, filteredComponents) => {
-  const counts = Object.fromEntries(
-    categories.map((category) => [category, 0])
-  );
+const calculateCategoryCounts = (categories, components) => {
+  const counts = Object.fromEntries(categories.map((category) => [category, 0]));
 
-  filteredComponents.forEach((component) => {
+  components.forEach((component) => {
     component.Categories?.forEach((category) => {
       if (counts[category] !== undefined) counts[category]++;
     });
@@ -38,7 +31,7 @@ const getComponentsByCategory = (components, category) => {
     : [];
 };
 
-export function useComponentLibraryData(components, categories, searchTerm) {
+export function useComponentLibraryMock(components, categories, searchTerm) {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [error] = useState(null);
 
@@ -52,11 +45,8 @@ export function useComponentLibraryData(components, categories, searchTerm) {
     [filteredComponents, categories]
   );
 
-  const visibleCategories = useMemo(
-    () => getVisibleCategories(categories, searchTerm, categoryCounts),
-    [searchTerm, categories, categoryCounts]
-  );
-
+  const visibleCategories = getVisibleCategories(categories, searchTerm, categoryCounts);
+  
   const componentsInSelectedCategory = useMemo(
     () => getComponentsByCategory(filteredComponents, selectedCategory),
     [filteredComponents, selectedCategory]

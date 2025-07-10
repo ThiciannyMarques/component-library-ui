@@ -1,15 +1,14 @@
-import { useMemo } from 'react';
-import {ComponentLibrary} from './components/ComponentLibrary';
-import { Library, addBigData } from './data/library';
+import {ComponentLibrary} from './components/ComponentLibrary/ComponentLibrary';
+import { Library, addBigData } from './mocks/library';
 
 addBigData(30, 10000);
 
 export default function App() {
-  const components = useMemo(() => [...Library.Components], []);
-  const categories = useMemo(() => [...new Set(Library.Categories)], []);
+  const components = [...Library.Components];
+  const categories = [...new Set(Library.Categories)];
 
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
+    <div>
       <ComponentLibrary
         components={components}
         categories={categories}
